@@ -102,7 +102,7 @@
     	- Combine other features into single array,  X 
     	- Calculate eigenvalues and eigenvectors 
     	- Utilize explained variance to indicate how much information can be attributed to each of the principal components
-     	![p1](/Figures/PCAcover.png)
+     	![p1](Figures/PCAcover.png)
     - ISOMAP
     	- Try with non-linear dimensionality reduction, Isomap.
     	- Instead of Euclidean distance, isomap uses geodesic distance
@@ -119,39 +119,39 @@
 ## Results
   - **Feature selection**
     - Correlation heatmap
-    ![p2](/Figures/heatmap.png)
+    ![p2](Figures/heatmap.png)
     - Distribution visualization
-    ![p3](/Figures/distribution.png)
+    ![p3](Figures/distribution.png)
     - Mutual information
-    ![p4](/Figures/mutual_info.png)
+    ![p4](Figures/mutual_info.png)
   - **Dimensionality Reduction**
     - We can more clear visualization of how many components can cover how much information with following graph
     - Tell from the explained variance, components 6 and 7 contains information shared less amount of information compared with other components. And, since they contain less than 10% information in total, we can discard those two. Thus, we will make the pca with 5 principal components, and project our X on the new basis. 
     - With getting new merged principal components, 90% information has been covered with 5 principal components, which is consistent with what we guess with explained variance.
-      - ![p5](/Figures/PCAlinear.png)
+      - ![p5](Figures/PCAlinear.png)
     - For isomap, changing components from 5 to 2 for better visualization (shown below), however, the clustering didn't show with expected result.
-      - ![p6](/Figures/isomap.png)
+      - ![p6](Figures/isomap.png)
     - With updated balanced datasets, PCA also retrieve better performance on incerasing numbers of components with separating viral and non-viral songs, which can be helpful in clustering and that's the reason we insist on PCA.
-      - ![p7](/Figures/PCAcomponents.png) 
+      - ![p7](Figures/PCAcomponents.png) 
       - kernelPCA gave larger variance in first two principle components which indicates that datapoints can be better separated on the new basis.
-      - ![pN](/Figures/kernelPCA.png)
+      - ![pN](Figures/kernelPCA.png)
   - **Clustering with different methods**
     - Clustering after PCA
-      - ![p8](/Figures/pca_groundtruth.png)
-      - ![p9](/Figures/pca_gmm.png)![p10](/Figures/pca_kmeans.png)
+      - ![p8](Figures/pca_groundtruth.png)
+      - ![p9](Figures/pca_gmm.png)![p10](Figures/pca_kmeans.png)
     - Clustering after Isomap
-      - ![p11](/Figures/isomap_groundtruth.png)
-      - ![p12](/Figures/isomap_kmeans.png)![p13](/Figures/isomap_gmm.png)
+      - ![p11](Figures/isomap_groundtruth.png)
+      - ![p12](Figures/isomap_kmeans.png)![p13](Figures/isomap_gmm.png)
     - Clustering after Kernel PCA
-      - ![p29](/Figures/kernel_groundtruth.png)
-      - ![p30](/Figures/kernel_kmeans.png)![p31](/Figures/kernel_gmm.png)
+      - ![p29](Figures/kernel_groundtruth.png)
+      - ![p30](Figures/kernel_kmeans.png)![p31](Figures/kernel_gmm.png)
     - Comparison between clustering methods
     	- FM 
-    	- ![p14](/Figures/FM.png)
+    	- ![p14](Figures/FM.png)
     	- NMI
-    	- ![p15](/Figures/NMI1_GMM.png)![p16](/Figures/NMI2_GMM.png)
-    	- ![p17](/Figures/NMI1_pca.png)![p18](/Figures/NMI2_pca.png)
-    	- ![p32](/Figures/nmi1_kernel.png)![p33](/Figures/nmi2_kernel.png)
+    	- ![p15](Figures/NMI1_GMM.png)![p16](Figures/NMI2_GMM.png)
+    	- ![p17](Figures/NMI1_pca.png)![p18](Figures/NMI2_pca.png)
+    	- ![p32](Figures/nmi1_kernel.png)![p33](/Figures/nmi2_kernel.png)
 
   - **Final Finding**
     - After evaluating different unsupervised learning outcomes,  we pick “GMM with Kernel PCA” to be the final clustering method, composed of 398 songs and 5 principal components.
@@ -254,26 +254,26 @@
 
   - **Extreme Gradient Boosted Decision Trees (XGBoost)**
     - Performed XGBoost on original features
-      - ![p18](/XGBoost/confusionMatrix_withoutPCA.PNG)
-      - ![p19](/XGBoost/xgboost_plot_importance_withoutPCA.png)
-      - ![p20](/XGBoost/xgboost_DT_withoutPCA.png)
+      - ![p18](XGBoost/confusionMatrix_withoutPCA.PNG)
+      - ![p19](XGBoost/xgboost_plot_importance_withoutPCA.png)
+      - ![p20](XGBoost/xgboost_DT_withoutPCA.png)
     - Performed XGBoost on features after kernel PCA
-      - ![p21](/XGBoost/confusionMatrix_withPCA.PNG)
-      - ![p22](/XGBoost/xgboost_plot_importance_withPCA.png)
-      - ![p23](/XGBoost/xgboost_DT_withPCA.png)
+      - ![p21](XGBoost/confusionMatrix_withPCA.PNG)
+      - ![p22](XGBoost/xgboost_plot_importance_withPCA.png)
+      - ![p23](XGBoost/xgboost_DT_withPCA.png)
     
   - **Support Vector Machine**
     - SVM using RBF kernel result shown between energy and dancability
-      - ![p24](/SVM/SVM_result_with_SV.png)
+      - ![p24](SVM/SVM_result_with_SV.png)
     - SVM using RBF kernel result between each dimension
-      - ![p25](/SVM/Combined_result.png)
+      - ![p25](SVM/Combined_result.png)
   - **Multi-layer Perceptron Classifier (MLP)**
     - Performed MLPClassifier on original features (2 layers with 6 and 3 neurons, activation='relu', solver='lbfgs')
-      - ![p26](/mlp_finalresults/confusionMatrix_beforePCA.PNG)
+      - ![p26](mlp_finalresults/confusionMatrix_beforePCA.PNG)
     - Performed MLPClassifier on features after kernel PCA (1 layer with 4 neurons, activation='tanh', solver='adam')
-      - ![p27](/mlp_finalresults/confusionMatrix_afterPCA.PNG)
+      - ![p27](mlp_finalresults/confusionMatrix_afterPCA.PNG)
   - **Final Finding**
-    - ![p28](/mlp_finalresults/final_results.PNG)
+    - ![p28](mlp_finalresults/final_results.PNG)
 
 ## Discussion
   - **Decision Trees and Random Forest**
